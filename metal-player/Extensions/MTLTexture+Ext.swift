@@ -6,4 +6,17 @@
 //  Copyright © 2019 serglam. All rights reserved.
 //
 
-import Foundation
+import MetalKit
+
+extension MTLTexture {
+ 
+    func threadGroupCount() -> MTLSize {
+        return MTLSizeMake(8, 8, 1)
+    }
+ 
+    func threadGroups() -> MTLSize {
+        let groupCount = threadGroupCount()
+        return MTLSizeMake(Int(self.width) / groupCount.width, Int(self.height) / groupCount.height, 1)
+    }
+}
+ 
