@@ -9,7 +9,7 @@
 import AVFoundation
 import UIKit
 
-class StartViewController: UIViewController {
+final class StartViewController: UIViewController {
     
     let player: AVPlayer = AVPlayer()
     
